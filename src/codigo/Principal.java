@@ -16,7 +16,7 @@ public class Principal {
     public static void main(String[] args) throws Exception {
         String ruta1 = "C:\\Users\\renat\\OneDrive\\Documentos\\NetBeansProjects\\AnalizadorLexico\\src\\codigo\\Lexer.flex";
         String ruta2 = "C:\\Users\\renat\\OneDrive\\Documentos\\NetBeansProjects\\AnalizadorLexico\\src\\codigo\\LexerCup.flex";
-        String[] rutaS = {"-parser", "Sintax", "C:\\Users\\renat\\OneDrive\\Documentos\\NetBeansProjects\\AnalizadorLexico\\src\\codigo\\Sintax.cup"};
+        String[] rutaS = {"-parser", "ArbolSemantico", "C:\\Users\\renat\\OneDrive\\Documentos\\NetBeansProjects\\AnalizadorLexico\\src\\codigo\\ArbolSemantico.cup"};
         String[] rutaS2 = {"-parser", "CupArbol", "C:\\Users\\renat\\OneDrive\\Documentos\\NetBeansProjects\\AnalizadorLexico\\src\\codigo\\CupArbol.cup"};
 
         generar(ruta1, ruta2, rutaS , rutaS2 );
@@ -40,13 +40,13 @@ public class Principal {
                 Paths.get("C:\\Users\\renat\\OneDrive\\Documentos\\NetBeansProjects\\AnalizadorLexico\\sym.java"), 
                 Paths.get("C:\\Users\\renat\\OneDrive\\Documentos\\NetBeansProjects\\AnalizadorLexico\\src\\codigo\\sym.java")
         );
-        Path rutaSin = Paths.get("C:\\Users\\renat\\OneDrive\\Documentos\\NetBeansProjects\\AnalizadorLexico\\src\\codigo\\Sintax.java");
+        Path rutaSin = Paths.get("C:\\Users\\renat\\OneDrive\\Documentos\\NetBeansProjects\\AnalizadorLexico\\src\\codigo\\ArbolSemantico.java");
         if (Files.exists(rutaSin)) {
             Files.delete(rutaSin);
         }
         Files.move(
-                Paths.get("C:\\Users\\renat\\OneDrive\\Documentos\\NetBeansProjects\\AnalizadorLexico\\Sintax.java"), 
-                Paths.get("C:\\Users\\renat\\OneDrive\\Documentos\\NetBeansProjects\\AnalizadorLexico\\src\\codigo\\Sintax.java")
+                Paths.get("C:\\Users\\renat\\OneDrive\\Documentos\\NetBeansProjects\\AnalizadorLexico\\ArbolSemantico.java"), 
+                Paths.get("C:\\Users\\renat\\OneDrive\\Documentos\\NetBeansProjects\\AnalizadorLexico\\src\\codigo\\ArbolSemantico.java")
         );
         
         Path rutaSin2 = Paths.get("C:\\Users\\renat\\OneDrive\\Documentos\\NetBeansProjects\\AnalizadorLexico\\src\\codigo\\CupArbol.java");

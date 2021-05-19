@@ -40,7 +40,7 @@ SENTENCIA_IF, LOGICOAND , DECLARACION_IF , ELSE_IF, DECLARACIONES,PARAMETROS2, D
      SENTENCIA_BOOLEANA , LOGICOAND_Prima ,  LOGICOOR, COMPARACION, RECURSION,OP_RECURSIVIDAD, OP_Recursion,
 
 /* Para Aritmeticas */
-     ADICIONES , MULTIPLICACIONES,  MULTIPLICACIONES_PRIMA,  ARITMETICOS, CUERPO_ESTRUCTURA, CONCATENABLES, PROGRAMA,
+     ADICIONES , MULTIPLICACIONES,  MULTIPLICACIONES_PRIMA,  ARITMETICOS, CUERPO_ESTRUCTURA, CONCATENABLES, PROGRAMA,PARA_STRUCK,
 
 /* Para Imprimir */
 IMPRIMIR, CONCATENACION, LEER
@@ -80,8 +80,10 @@ TIPODATO::= AS Integer
 DECLARACION::=   Dim VARIABLES TIPODATO IGUALDAD ;
 
 IGUALDAD::= Igual New Identificador parentesisE PARAMETROS2 parentesisC 
+            | Igual Identificador parentesisE PARAMETROS2 parentesisC 
             | Igual DATO 
             | Igual New parentesisE parentesisC 
+            
             |
 ;
 
@@ -100,7 +102,7 @@ DATO::= ARITMETICOS | Op_Booleano | Cadena | LEER  ;
 
 PARAMETROS2::=  DATO coma PARAMETROS2 | DATO ;
 
-ESTRUCTURA::= struct Identificador CUERPO_ESTRUCTURA End struct
+ESTRUCTURA::= struct Identificador PARA_STRUCK End struct
                
   ;
 
@@ -112,8 +114,14 @@ CUERPO_ESTRUCTURA::= DECLARACION Enter CUERPO_ESTRUCTURA
                      | error CUERPO_ESTRUCTURA
                      | 
                      
+                     ;
+
+PARA_STRUCK::= DECLARACION Enter PARA_STRUCK | Enter PARA_STRUCK;
+                    
                      
                      ;
+
+
 
 
 
@@ -225,12 +233,6 @@ MULTIPLICACIONES::= VALORES_NUMERICOS MULTIPLICACIONES_PRIMA ;
 MULTIPLICACIONES_PRIMA::= OPMultDiv VALORES_NUMERICOS MULTIPLICACIONES_PRIMA
                | 
 ;
-
-
-
-
-
-
 
 
 

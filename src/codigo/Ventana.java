@@ -411,24 +411,24 @@ public class Ventana extends javax.swing.JFrame {
         errores = "";
          //notificar_er("----------Analisis Comenzando----------");
         String CadenaBasic = txtArchivo.getText();
-        
-        Sintax s = new Sintax(new codigo.Lexico(new BufferedReader( new StringReader(CadenaBasic))));     
+       
+        ArbolSemantico s = new ArbolSemantico(new codigo.Lexico(new BufferedReader( new StringReader(CadenaBasic))));     
         try {
-            
-          
+           
             s.parse();
             //txtSintactico.setText("Analisis Sintactico realizado correctamente");
            
-            
-            
+     
            
              notificar_er("Analisis Sintactico realizado correctamente");
              
              if (errores.length() < 50) {
+                
                   txtSintactico.setForeground(new Color(25, 111, 61));
                   txtSintactico.setText(errores);
                 
             }else{
+               
                  errores = errores.replace("Analisis Sintactico realizado correctamente", "");
                  txtSintactico.setForeground(Color.red);
                  txtSintactico.setText(errores);
@@ -439,6 +439,7 @@ public class Ventana extends javax.swing.JFrame {
             
       
         } catch (Exception ex) {
+            System.out.println(ex);
 //             Symbol sym = s.getS();
 //             txtSintactico.setText("Error . Linea: " + (sym.right ) + " Columna: " + (sym.left + 1) + ", Texto: \"" + sym.value + "\"");
 //            txtSintactico.setForeground(Color.red);
